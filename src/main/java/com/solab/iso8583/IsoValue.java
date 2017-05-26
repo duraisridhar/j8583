@@ -147,16 +147,15 @@ public class IsoValue<T> implements Cloneable {
                 } else {
                     length = custom.encodeField(value).length();
                 }
-				length = custom == null ? ((byte[])val).length : custom.encodeField(value).length();
-			}
-			if (t == IsoType.LLBIN && length > 99) {
-				throw new IllegalArgumentException("LLBIN can only hold values up to 99 chars");
-			} else if (t == IsoType.LLLBIN && length > 999) {
-				throw new IllegalArgumentException("LLLBIN can only hold values up to 999 chars");
+	    }
+	    if (t == IsoType.LLBIN && length > 99) {
+	 	throw new IllegalArgumentException("LLBIN can only hold values up to 99 chars");
+	    } else if (t == IsoType.LLLBIN && length > 999) {
+	 	throw new IllegalArgumentException("LLLBIN can only hold values up to 999 chars");
             } else if (t == IsoType.LLLLBIN && length > 9999) {
                 throw new IllegalArgumentException("LLLLBIN can only hold values up to 9999 chars");
-			}
-		}
+	    }
+	  }
 	}
 
 	/** Returns the ISO type to which the value must be formatted. */
